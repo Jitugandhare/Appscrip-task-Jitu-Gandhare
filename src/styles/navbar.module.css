@@ -1,103 +1,88 @@
 .header {
-    width: 100%;
-    height: 188px;
-    border-bottom: 1px solid #ddd;
-    padding: 10px 20px;
-  }
-  
-  .navContainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    position: relative;
-  }
-  
-  .leftIcon {
-    
-    flex: 1;
-    display: flex;
-    align-items: center;
-  }
-  .leftIcon span {
-    width: 36px;
-    height: 36px;
-    margin-top: 40px;
-    margin-left: 96px;
-  }
-  
-  .logo {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    font-family: Inter;
-    font-weight: 800;
-    color: #000000;
-    font-size: 20px;
-  }
-  
-  .actions {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-    gap: 15px;
-    font-size: 16px;
-  }
-  
+  height: 110px;
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 20px;
+}
+
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  height: 55px;
+  align-items: center;
+  flex-wrap: wrap;
+
+}
+
+.leftIcon {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  font:Inter;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.actions {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  font-size: 16px;
+}
+
+.navLinks {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 10px 0;
+  font:Inner alignment;
+  font-weight: 650;
+  font-size: 14px;
+}
+
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
   .navLinks {
-    display: flex;
-    justify-content: center;
-    gap: 64px; /* updated from 30px to your value */
-    padding: 10px 0;
-    font-weight: 600;
-    font-size: 14px;
-    margin-top: 10px;
-  
-    width: 636px;
-    height: 24px;
-    position: absolute; /* needed for top/left to work */
-    top: 140px;
-    left: 402px;
-  }
-  
-  
-  .hamburger {
     display: none;
-    font-size: 24px;
-    cursor: pointer;
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
   }
-  
-  /* Responsive Styles */
-  @media screen and (max-width: 768px) {
-    .navLinks {
-      display: none;
-      flex-direction: column;
-      text-align: center;
-      gap: 15px;
-      margin-top: 20px;
-      width: 100%;
-    }
-  
-    .navLinks.open {
-      display: flex;
-    }
-  
-    .hamburger {
-      display: block;
-      position: absolute;
-      right: 20px;
-    }
-  
-    .logo {
-      flex: 100%;
-      justify-content: center;
-      order: -1;
-      margin-top: 10px;
-    }
-  
-    .actions,
-    .leftIcon {
-      display: none;
-    }
+
+  .navLinks.open {
+    display: flex;
   }
-  
+
+  .hamburger {
+    display: block;
+    position: absolute;
+    right: 20px;
+  }
+
+  .logo {
+    flex: 100%;
+    justify-content: center;
+    order: -1;
+  }
+
+  .actions {
+    display: none;
+  }
+
+  .leftIcon {
+    display: none;
+  }
+}

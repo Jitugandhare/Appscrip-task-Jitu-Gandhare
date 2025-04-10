@@ -5,10 +5,12 @@ export default function SortMenu({ setSort }) {
     <div className={styles.sortMenu}>
       <label htmlFor="sort">Sort by:</label>
       <select id="sort" onChange={(e) => setSort(e.target.value)}>
+       
         <option value="recommended">Recommended</option>
+        <option value="newest">Newest First</option>
         <option value="low">Price: Low to High</option>
         <option value="high">Price: High to Low</option>
-        <option value="newest">Newest First</option>
+
       </select>
     </div>
   );

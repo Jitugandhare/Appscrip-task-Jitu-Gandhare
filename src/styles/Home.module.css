@@ -1,27 +1,37 @@
+/* === Container === */
 .container {
+
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
+/* === Header Section === */
 .headerSection {
   background-color: #fafafa;
   padding: 2rem 1rem;
   text-align: center;
   border-bottom: 1px solid #e0e0e0;
+
+
 }
 
 .headerSection h1 {
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
   margin-bottom: 0.5rem;
   color: #222;
 }
 
 .headerSection h2 {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
   color: #666;
 }
 
+/* === Main Layout === */
 .main {
   display: flex;
   flex-direction: column;
@@ -33,6 +43,7 @@
   flex-direction: column;
 }
 
+/* === Sidebar === */
 .sidebar {
   background-color: #f9f9f9;
   padding: 1.5rem;
@@ -77,6 +88,7 @@
   background-color: #e60000;
 }
 
+/* === Sort Menu === */
 .sortMenu {
   display: flex;
   justify-content: flex-end;
@@ -86,6 +98,7 @@
   gap: 0.5rem;
 }
 
+/* === Product Grid & Cards === */
 .productGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -108,13 +121,111 @@
   margin-bottom: 0.5rem;
 }
 
-.footer {
-  background-color: #222;
-  color: white;
-  padding: 1rem;
-  text-align: center;
+/* === Navbar === */
+.header {
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 20px;
+  position: relative;
 }
 
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.leftIcon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 24px;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  font-weight: 800;
+  font-size: 20px;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  font-size: 16px;
+}
+
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .topSection {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .subscribe,
+  .contact {
+    flex: 1 0 100%;
+    max-width: 100%;
+  }
+
+  .contact {
+    text-align: center;
+  }
+
+  .columns {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .inputGroup {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .inputGroup input {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .inputGroup button {
+    width: 100%;
+    max-width: 150px;
+  }
+}
+
+/* === Responsive Styles === */
+@media (min-width: 768px) {
+  .contentWrapper {
+    flex-direction: row;
+  }
+
+  .sidebar {
+    width: 250px;
+  }
+
+  .mainContent {
+    flex: 1;
+    padding-left: 1.5rem;
+  }
+
+  .productGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Tablets and above (≥768px) */
 @media (min-width: 768px) {
   .contentWrapper {
     flex-direction: row;
@@ -130,7 +241,13 @@
   }
 }
 
+/* Small devices (≤480px) */
 @media (max-width: 480px) {
+  /* .sidebar {
+    display: none;
+  } */
+
+
   .headerSection h1 {
     font-size: 1.8rem;
   }
@@ -138,149 +255,72 @@
   .headerSection h2 {
     font-size: 1rem;
   }
-}
 
-.header {
-  width: 100%;
-  height: 188px;
-  border-bottom: 1px solid #ddd;
-  padding: 10px 20px;
-}
-
-.navContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  position: relative;
-}
-
-.leftIcon {
-  width: 36px;
-  height: 36px;
-  margin-top: 40px;
-  margin-left: 96px;
-  flex: 1;
-  display: flex;
-  align-items: center;
-}
-.leftIcon span {
-  width: 36px;
-  height: 36px;
-  margin-top: 40px;
-  margin-left: 96px;
-}
-
-.logo {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  font-family: Inter;
-  font-weight: 800;
-  color: #000000;
-  font-size: 20px;
-}
-
-.actions {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-  gap: 15px;
-  font-size: 16px;
-}
-
-.navLinks {
-  display: flex;
-  justify-content: center;
-  gap: 64px; /* updated from 30px to your value */
-  padding: 10px 0;
-  font-weight: 600;
-  font-size: 14px;
-  margin-top: 10px;
-
-  width: 636px;
-  height: 24px;
-  position: absolute; /* needed for top/left to work */
-  top: 140px;
-  left: 402px;
-}
-
-
-.hamburger {
-  display: none;
-  font-size: 24px;
-  cursor: pointer;
-}
-
-/* Responsive Styles */
-@media screen and (max-width: 768px) {
-  .navLinks {
-    display: none;
-    flex-direction: column;
-    text-align: center;
-    gap: 15px;
-    margin-top: 20px;
-    width: 100%;
+  .navbar .logo a {
+    font-size: 1.2rem;
   }
 
-  .navLinks.open {
-    display: flex;
-  }
-
-  .hamburger {
-    display: block;
-    position: absolute;
-    right: 20px;
-  }
-
-  .logo {
-    flex: 100%;
-    justify-content: center;
-    order: -1;
-    margin-top: 10px;
-  }
-
-  .actions,
-  .leftIcon {
-    display: none;
+  .navbar .actions span {
+    font-size: 1.5rem;
   }
 }
 
 
-/* footer section */
 
+/* === Footer === */
 .footer {
   background-color: #000;
   color: #fff;
   padding: 40px 20px;
   font-size: 14px;
+  width: 1444px;
+  height: 750px;
+  box-sizing: border-box;
 }
 
 .topSection {
+ 
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
   gap: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 80px;
   text-align: left;
 }
 
 .subscribe {
+  margin-top: 15px;
+  height: 50px;
+  
   flex: 1;
-  min-width: 250px;
-  max-width: 400px;
+  width: 201px;
+
   text-align: center;
 }
 
 .subscribe h4 {
+  padding-top: 10px;
+  width: 584px;
+  height: 30px;
   margin-bottom: 10px;
   font-size: 16px;
   font-weight: bold;
   text-transform: uppercase;
 }
 
+.subscribe p {
+  height: 30px;
+  padding-top: 10px;
+  width: 584px;
+
+  margin-bottom: 5px;
+}
+
 .inputGroup {
+  padding-top: 10px;
+  width: 684px;
+  height: 60px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -289,6 +329,7 @@
 }
 
 .inputGroup input {
+  padding-top: 10px;
   padding: 10px;
   width: 250px;
   border: none;
@@ -296,8 +337,9 @@
 }
 
 .inputGroup button {
+
   padding: 10px 20px;
-  background: #fff;
+  background: #1f1212;
   color: #000;
   border: none;
   border-radius: 4px;
@@ -307,13 +349,21 @@
 }
 
 .inputGroup button:hover {
-  background: #e6e6e6;
+  background: #2c2727;
 }
 
 .contact {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
   flex: 1;
-  min-width: 200px;
-  max-width: 300px;
+  width: 200px;
+  height: 250px;
+  margin-bottom: 50px;
+
 }
 
 .note {
@@ -397,37 +447,5 @@
   margin-top: 40px;
   font-size: 12px;
   opacity: 0.6;
-}
-
-/* Responsive */
-@media screen and (max-width: 768px) {
-  .topSection {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .contact {
-    text-align: center;
-  }
-
-  .columns {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .inputGroup {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .inputGroup input {
-    width: 100%;
-    max-width: 300px;
-  }
-
-  .inputGroup button {
-    width: 100%;
-    max-width: 150px;
-  }
+  border-top: 1px solid #444;
 }
