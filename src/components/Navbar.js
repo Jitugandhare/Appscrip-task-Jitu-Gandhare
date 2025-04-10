@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import styles from '../styles/navbar.module.css';
-import  {Search,Heart,ShoppingBag,User ,} from 'lucide-react'
+import { Search, Heart, ShoppingBag, User } from 'lucide-react';
+
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -12,6 +13,11 @@ export default function Navbar() {
   return (
     <header className={styles.header}>
       <div className={styles.navContainer}>
+        {/* Hamburger (Visible on small screens, on left) */}
+        <button className={styles.hamburger} onClick={toggleMenu} aria-label="Toggle menu">
+          ☰
+        </button>
+
         {/* Left Icon */}
         <div className={styles.leftIcon}>
           <span>🌸</span>
@@ -23,17 +29,12 @@ export default function Navbar() {
         </div>
 
         {/* Right Icons */}
-        <div className={styles.actions} >
-          <span><Search /></span>
-          <span><Heart /></span>
-          <span><ShoppingBag /></span>
-          <span><User /></span>
-          <span style={{color:"black"}}>ENG ▼</span>
-        </div>
-
-        {/* Hamburger */}
-        <div className={styles.hamburger} onClick={toggleMenu}>
-          ☰
+        <div className={styles.actions}>
+          <span ><Search style={{cursor:"pointer"}}/></span>
+          <span ><Heart style={{cursor:"pointer"}}/></span>
+          <span ><ShoppingBag style={{cursor:"pointer"}}/></span>
+          <span ><User  style={{cursor:"pointer"}}/></span>
+          <span style={{ color: "black",cursor:"pointer" }}>ENG ▼</span>
         </div>
       </div>
 

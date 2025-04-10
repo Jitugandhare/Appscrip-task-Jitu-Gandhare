@@ -11,7 +11,7 @@
   height: 55px;
   align-items: center;
   flex-wrap: wrap;
-
+  position: relative; /* for hamburger positioning */
 }
 
 .leftIcon {
@@ -24,7 +24,7 @@
   flex: 1;
   display: flex;
   justify-content: center;
-  font:Inter;
+  font-family: Inter, sans-serif;
   font-size: 20px;
   margin-bottom: 10px;
 }
@@ -44,7 +44,7 @@
   justify-content: center;
   gap: 30px;
   padding: 10px 0;
-  font:Inner alignment;
+  font-family: Inter, sans-serif;
   font-weight: 650;
   font-size: 14px;
 }
@@ -53,6 +53,10 @@
   display: none;
   font-size: 24px;
   cursor: pointer;
+  background: none;
+  border: none;
+  color: black;
+  position: absolute;
 }
 
 /* Responsive Styles */
@@ -70,8 +74,8 @@
 
   .hamburger {
     display: block;
-    position: absolute;
-    right: 20px;
+    left: 20px;
+    top: 15px;
   }
 
   .logo {
