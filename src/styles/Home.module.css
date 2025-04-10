@@ -1,0 +1,244 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.headerSection {
+  background-color: #fafafa;
+  padding: 2rem 1rem;
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.headerSection h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.headerSection h2 {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar {
+  background-color: #f9f9f9;
+  padding: 1.5rem;
+  border-right: 1px solid #ddd;
+  width: 100%;
+}
+
+.sidebar h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.sidebar label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  color: #333;
+  cursor: pointer;
+}
+
+.sidebar input[type="checkbox"] {
+  margin-right: 0.5rem;
+  transform: scale(1.2);
+  accent-color: #0070f3;
+}
+
+.sidebar button {
+  margin-top: 1rem;
+  background-color: #ff4d4d;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar button:hover {
+  background-color: #e60000;
+}
+
+.sortMenu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.productCard {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.productCard img {
+  max-height: 150px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+.footer {
+  background-color: #222;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .contentWrapper {
+    flex-direction: row;
+  }
+
+  .sidebar {
+    width: 250px;
+    min-height: 100%;
+  }
+
+  .mainContent {
+    flex: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .headerSection h1 {
+    font-size: 1.8rem;
+  }
+
+  .headerSection h2 {
+    font-size: 1rem;
+  }
+}
+
+.header {
+  width: 100%;
+  height: 188px;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 20px;
+}
+
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.leftIcon {
+  
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.leftIcon span {
+  width: 36px;
+  height: 36px;
+  margin-top: 40px;
+  margin-left: 96px;
+}
+
+.logo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  font-family: Inter;
+  font-weight: 800;
+  color: #000000;
+  font-size: 20px;
+}
+
+.actions {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  font-size: 16px;
+}
+
+.navLinks {
+  display: flex;
+  justify-content: center;
+  gap: 64px; /* updated from 30px to your value */
+  padding: 10px 0;
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: 10px;
+
+  width: 636px;
+  height: 24px;
+  position: absolute; /* needed for top/left to work */
+  top: 140px;
+  left: 402px;
+}
+
+
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .navLinks {
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .navLinks.open {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+    position: absolute;
+    right: 20px;
+  }
+
+  .logo {
+    flex: 100%;
+    justify-content: center;
+    order: -1;
+    margin-top: 10px;
+  }
+
+  .actions,
+  .leftIcon {
+    display: none;
+  }
+}
