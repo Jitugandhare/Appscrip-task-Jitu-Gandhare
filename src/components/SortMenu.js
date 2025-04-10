@@ -3,7 +3,7 @@ import styles from '../styles/Home.module.css';
 export default function SortMenu({ setSort }) {
   return (
     <div className={styles.sortMenu}>
-      <label htmlFor="sort">Sort by:</label>
+      {/* <label htmlFor="sort"></label> */}
       <select id="sort" onChange={(e) => setSort(e.target.value)}>
        
         <option value="recommended">Recommended</option>

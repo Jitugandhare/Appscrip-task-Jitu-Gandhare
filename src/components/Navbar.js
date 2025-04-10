@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import styles from '../styles/navbar.module.css';
-
+import  {Search,Heart,ShoppingBag,User ,} from 'lucide-react'
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -23,12 +23,12 @@ export default function Navbar() {
         </div>
 
         {/* Right Icons */}
-        <div className={styles.actions}>
-          <span>🔍</span>
-          <span>🤍</span>
-          <span>🛍️</span>
-          <span>👤</span>
-          <span>ENG ▼</span>
+        <div className={styles.actions} >
+          <span><Search /></span>
+          <span><Heart /></span>
+          <span><ShoppingBag /></span>
+          <span><User /></span>
+          <span style={{color:"black"}}>ENG ▼</span>
         </div>
 
         {/* Hamburger */}

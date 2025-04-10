@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { ChevronRight, ArrowLeft, ChevronLeft } from 'lucide-react';
 import axios from 'axios';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
@@ -13,6 +14,7 @@ export default function Home() {
   const [products, setProducts] = useState([]);
   const [filteredCategories, setFilteredCategories] = useState([]);
   const [sortedBy, setSortedBy] = useState('recommended');
+  const [showSideMenu, setShowSideMenu] = useState(true)
 
   useEffect(() => {
     axios.get('https://fakestoreapi.com/products')
@@ -48,7 +50,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>FakeStore - Shop the Latest Products</title>
+        <title>Appscrip-task</title>
         <meta name="description" content="Browse and shop the latest products at FakeStore. Great prices on electronics, clothing, and more!" />
         <meta name="robots" content="index, follow" />
         <meta property="og:title" content="FakeStore - Shop the Latest Products" />
@@ -73,29 +75,57 @@ export default function Home() {
       <div className={styles.container}>
         <Navbar />
         <Header />
+        {/* hide filter */}
+        <div style={{ display: "flex", width: "100%", alignItems: "center", justifyContent: "space-between", padding: "0 1rem", borderBottom: "1px solid #ddd" }}>
+          {/* Left Side: Product count and Show/Hide sidebar */}
+          <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
+            <p style={{ margin: 0, fontSize: "1rem", fontWeight: "500", color: "#333" }}>
+              {filterProducts().length} product(s) found
+            </p>
 
-        
+            <p
+              onClick={() => setShowSideMenu(!showSideMenu)}
+              style={{
+                cursor: "pointer",
+                color: "gray",
+                fontSize: "1rem",
+                fontWeight: "600",
+                margin: 0,
+                display: "flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                transition: "color 0.3s ease"
+              }}
+              onMouseEnter={(e) => e.target.style.color = "black"}
+              onMouseLeave={(e) => e.target.style.color = "black"}
+            >
+              {showSideMenu ? "Hide" : "Show"}
+              {showSideMenu ? <ChevronLeft size={20} /> : <ChevronRight size={20} />}
+            </p>
+          </div>
+
+          {/* Right Side: Sort Menu */}
+          <SortMenu setSort={setSortedBy} />
+        </div>
         <div className={styles.main}>
-          <div className={styles.contentWrapper}>
-            <Sidebar
+
+          <div  >
+            {showSideMenu ? (<Sidebar
               selectedCategories={filteredCategories}
               setSelectedCategories={setFilteredCategories}
-            />
-            <div className={styles.mainContent}>
-              <SortMenu setSort={setSortedBy} />
-              <p style={{ padding: '0 1rem' }}>
-                {filterProducts().length} product(s) found
-              </p>
-              <div className={styles.productGrid}>
-                {filterProducts().map(product => (
-                  <ProductCard key={product.id} product={product} />
-                ))}
-              </div>
-            </div>
+            />) : ""}
+
           </div>
+
+          <div className={styles.productGrid} >
+            {filterProducts().map(product => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+
         </div>
         <Footer />
-        
+
       </div>
     </>
   );
